@@ -9,11 +9,13 @@ import {
   Image,
   Icon,
   IconButton,
-  createIcon,
-  IconProps,
-  useColorModeValue,
+  Center,
+  
 } from '@chakra-ui/react'
 import { Blocknumber } from 'components/blockNumber';
+
+import Gusano from "../../assets/images/3d Swirl Shape.svg"
+import LogoWhite from "../../assets/images/vara street logoHOMEWhite.svg"
 
 
 
@@ -24,18 +26,24 @@ function Home() {
 
 
   return (
-    <Container maxW='7xl'>
+    <Container p="0"  maxW="89rem" bgGradient='linear(to-l, #121215 ,#284736)'>
+      <Box w="full"   bgImg={Gusano}   bgRepeat="no-repeat" bgPos="center">
       <Blocknumber />
     <Stack
+      pl={{base:"1rem",md:"3rem",xl:"4rem", "2xl":"5rem"}}
+      pr={{base:"1rem"}}
       align='center'
       spacing={{ base: 8, md: 10 }}
       py={{ base: 20, md: 28 }}
       direction={{ base: 'column', md: 'row' }}>
       <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-        <Heading
+        <Image w="30rem" src={LogoWhite} />
+        {/* <Heading
           lineHeight={1.1}
           fontWeight={600}
           fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
+
+
           <Text
             as='span'
             position='relative'
@@ -55,11 +63,10 @@ function Home() {
           <Text as='span' color='red.400'>
             use everywhere!
           </Text>
-        </Heading>
-        <Text color='gray.500'>
-          Snippy is a rich coding snippets app that lets you create your own code
-          snippets, categorize them, and even sync them in the cloud so you can use them
-          anywhere. All that is free!
+        </Heading> */}
+        <Text color="gray.100" fontWeight="light"
+        fontSize={{ base: '1xl', sm: '3xl', lg: '4xl' }} >
+        Unlock the synthetic assets liquidity to optimize your DeFi strategies
         </Text>
         <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
           <Button
@@ -67,10 +74,10 @@ function Home() {
             size='lg'
             fontWeight='normal'
             px={6}
-            colorScheme='red'
-            bg='red.400'
-            _hover={{ bg: 'red.500' }}>
-            Get started
+            color="black"
+            bgGradient="linear(to-l, #00FFC4 ,#4FFF4B)"
+            _hover={{ bg: 'gray.200' }}>
+            Go to Dapp
           </Button>
           <Button
             rounded='full'
@@ -98,7 +105,7 @@ function Home() {
           zIndex={-1}
           color={useColorModeValue('red.50', 'red.400')}
         /> */}
-        <Box
+        {/* <Box
           position='relative'
           height='300px'
           rounded='2xl'
@@ -123,13 +130,18 @@ function Home() {
             align='center'
             w='100%'
             h='100%'
-            src=
-              'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
+            src={Gusano}
             
           />
-        </Box>
+        </Box> */}
       </Flex>
     </Stack>
+
+      </Box>
+      
+
+      
+     
   </Container>
   )
   

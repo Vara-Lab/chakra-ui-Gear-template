@@ -18,7 +18,7 @@ main {
 
 
 body {
-  background: white;
+  background: #121215 !important;
   background-size: 200% 200%;
   animation: gradientAnimation 5s linear infinite;
 }
