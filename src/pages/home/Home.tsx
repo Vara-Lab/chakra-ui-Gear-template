@@ -7,6 +7,7 @@ import {
   Text,
   Button,
   Image,
+  Icon,
   IconButton,
   Center,
   
@@ -21,7 +22,8 @@ import LogoWhite from "../../assets/images/vara street logoHOMEWhite.svg"
 
 
 function Home() {
- 
+  
+
 
   return (
     <Container p="0"  maxW="89rem" bgGradient='linear(to-l, #121215 ,#284736)'>
@@ -43,7 +45,6 @@ function Home() {
 
 
           <Text
-          bgGradient='linear(to-l, #4FFF4B ,#00FFC4)' bgClip='text'
             as='span'
             position='relative'
             _after={{
@@ -56,10 +57,10 @@ function Home() {
               bg: 'red.400',
               zIndex: -1,
             }}>
-            VARA STREET
+            Write once,
           </Text>
           <br />
-          <Text as='span' >
+          <Text as='span' color='red.400'>
             use everywhere!
           </Text>
         </Heading> */}
@@ -143,6 +144,8 @@ function Home() {
      
   </Container>
   )
+  
 }
+
 
 export { Home };
