@@ -1,13 +1,12 @@
 
 #root {
-  max-width: 1400px;
+  max-width: 100vw;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 0 16px;
   display: flex;
   flex-direction: column;
   box-sizing: content-box;
-  background:white; 
+  background:rgb(0, 0, 0); 
 }
 
 main {
