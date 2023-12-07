@@ -1,44 +1,33 @@
 import {
-    Container,
-    Stack,
-    Flex,
-    Box,
-    Heading,
-    Text,
-    Button,
-    Image,
-    Icon,
-    IconButton,
-    Center,
-    
-  } from '@chakra-ui/react'
-  import { Blocknumber } from 'components/blockNumber';
-  
-  import Gusano from "../../../assets/images/3d Swirl Shape.svg"
-  import LogoWhite from "../../../assets/images/vara street logoHOMEWhite.svg"
-  
-  
-  
-  
-  
-  function Hero() {
-    
-  
-  
-    return (
-      <Container p="0"  maxW="100vw" bgGradient='linear(to-l, #121215 ,#284736)'>
-        <Box w="100vw"   bgImg={Gusano}   bgRepeat="no-repeat" bgPos="center">
+  Container,
+  Stack,
+  Flex,
+  Box,
+  Text,
+  Button,
+  Image,
+} from "@chakra-ui/react";
+import { Blocknumber } from "components/blockNumber";
+
+import Gusano from "../../../assets/images/3d Swirl Shape.svg";
+import LogoWhite from "../../../assets/images/vara street logoHOMEWhite.svg";
+
+function Hero() {
+  return (
+    <Container p="0" maxW="100vw" bgGradient="linear(to-l, #121215 ,#284736)">
+      <Box w="100vw" bgImg={Gusano} bgRepeat="no-repeat" bgPos="center">
         <Blocknumber />
-      <Stack
-        pl={{base:"1rem",md:"3rem",xl:"8rem", "2xl":"15rem"}}
-        pr={{base:"1rem"}}
-        align='center'
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
-        direction={{ base: 'column', md: 'row' }}>
-        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-          <Image w="30rem" src={LogoWhite} />
-          {/* <Heading
+        <Stack
+          pl={{ base: "1rem", md: "3rem", xl: "8rem", "2xl": "15rem" }}
+          pr={{ base: "1rem" }}
+          align="center"
+          spacing={{ base: 8, md: 10 }}
+          py={{ base: 20, md: 28 }}
+          direction={{ base: "column", md: "row" }}
+        >
+          <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+            <Image w="30rem" src={LogoWhite} />
+            {/* <Heading
             lineHeight={1.1}
             fontWeight={600}
             fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
@@ -64,39 +53,48 @@ import {
               use everywhere!
             </Text>
           </Heading> */}
-          <Text color="gray.100" fontWeight="light"
-          fontSize={{ base: '1xl', sm: '3xl', lg: '4xl' }} >
-          Unlock the synthetic assets liquidity to optimize your DeFi strategies
-          </Text>
-          <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
-            <Button
-              rounded='full'
-              size='lg'
-              fontWeight='normal'
-              px={6}
-              color="black"
-              bgGradient="linear(to-l, #00FFC4 ,#4FFF4B)"
-              _hover={{ bg: 'gray.200' }}>
-              Go to Dapp
-            </Button>
-            <Button
-              rounded='full'
-              size='lg'
-              fontWeight='normal'
-              px={6}
-              // leftIcon={<PlayIcon h={4} w={4} color='gray.300'/>}
+            <Text
+              color="gray.100"
+              fontWeight="light"
+              fontSize={{ base: "1xl", sm: "3xl", lg: "4xl" }}
+            >
+              Unlock the synthetic assets liquidity to optimize your DeFi
+              strategies
+            </Text>
+            <Stack
+              spacing={{ base: 4, sm: 6 }}
+              direction={{ base: "column", sm: "row" }}
+            >
+              <Button
+                rounded="full"
+                size="lg"
+                fontWeight="normal"
+                px={6}
+                color="black"
+                bgGradient="linear(to-l, #00FFC4 ,#4FFF4B)"
+                _hover={{ bg: "gray.200" }}
               >
-              How It Works
-            </Button>
+                Go to Dapp
+              </Button>
+              <Button
+                rounded="full"
+                size="lg"
+                fontWeight="normal"
+                px={6}
+                // leftIcon={<PlayIcon h={4} w={4} color='gray.300'/>}
+              >
+                How It Works
+              </Button>
+            </Stack>
           </Stack>
-        </Stack>
-        <Flex
-          flex={1}
-          justify='center'
-          align='center'
-          position='relative'
-          w='full'>
-          {/* <Blob
+          <Flex
+            flex={1}
+            justify="center"
+            align="center"
+            position="relative"
+            w="full"
+          >
+            {/* <Blob
             w='150%'
             h='150%'
             position='absolute'
@@ -105,7 +103,7 @@ import {
             zIndex={-1}
             color={useColorModeValue('red.50', 'red.400')}
           /> */}
-          {/* <Box
+            {/* <Box
             position='relative'
             height='300px'
             rounded='2xl'
@@ -134,18 +132,11 @@ import {
               
             />
           </Box> */}
-        </Flex>
-      </Stack>
-  
-        </Box>
-        
-  
-        
-       
+          </Flex>
+        </Stack>
+      </Box>
     </Container>
-    )
-    
-  }
-  
-  
-  export { Hero };
+  );
+}
+
+export { Hero };
