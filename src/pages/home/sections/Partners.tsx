@@ -11,13 +11,22 @@ function Partners() {
       h="4rem"
       justify="space-around"
     >
-      <Heading color="gray.500" fontSize="1.5rem">
+      <Heading
+        color="gray.500"
+        fontSize={{ base: ".8rem", sm: "1rem", md: "1.5rem" }}
+      >
         Vara Network
       </Heading>
-      <Heading color="gray.500" fontSize="1.5rem">
+      <Heading
+        color="gray.500"
+        fontSize={{ base: ".8rem", sm: "1rem", md: "1.5rem" }}
+      >
         Vara Network
       </Heading>
-      <Heading color="gray.500" fontSize="1.5rem">
+      <Heading
+        color="gray.500"
+        fontSize={{ base: ".8rem", sm: "1rem", md: "1.5rem" }}
+      >
         Vara Network
       </Heading>
     </Flex>

@@ -1,0 +1,7 @@
+@use "@gear-js/ui/variables" as *;
+
+.CardFeature {
+  border-width: 1px;
+  border-image: linear-gradient(141deg, rgb(0, 255, 196), rgba(0, 255, 196, 0))
+    1;
+}
