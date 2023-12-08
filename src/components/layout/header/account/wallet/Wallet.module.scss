@@ -1,4 +1,4 @@
-@use '@gear-js/ui/variables' as *;
+@use "@gear-js/ui/variables" as *;
 
 .wallet {
   display: flex;
@@ -13,4 +13,8 @@
 
 .currency {
   color: $textColorSecondary;
+}
+.connectWallet {
+  color: white;
+  border-color: white;
 }

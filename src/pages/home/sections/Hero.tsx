@@ -8,11 +8,14 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { Blocknumber } from "components/blockNumber";
+import { useNavigate } from "react-router-dom";
 
 import Gusano from "../../../assets/images/3d Swirl Shape.svg";
 import LogoWhite from "../../../assets/images/vara street logoHOMEWhite.svg";
 
 function Hero() {
+  const navigate = useNavigate();
+
   return (
     <Container p="0" maxW="100vw" bgGradient="linear(to-l, #121215 ,#284736)">
       <Box w="100vw" bgImg={Gusano} bgRepeat="no-repeat" bgPos="center">
@@ -66,18 +69,17 @@ function Hero() {
               direction={{ base: "column", sm: "row" }}
             >
               <Button
-                rounded="full"
                 size="lg"
                 fontWeight="normal"
                 px={6}
                 color="black"
                 bgGradient="linear(to-l, #00FFC4 ,#4FFF4B)"
                 _hover={{ bg: "gray.200" }}
+                onClick={() => navigate("/Dapp")}
               >
                 Go to Dapp
               </Button>
               <Button
-                rounded="full"
                 size="lg"
                 fontWeight="normal"
                 px={6}
