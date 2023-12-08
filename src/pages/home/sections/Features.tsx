@@ -8,9 +8,9 @@ function Features() {
         justify="center"
         flexDirection={{ base: "column", sm: "column", md: "row" }}
       >
-        <CardFeatures />
-        <CardFeatures />
-        <CardFeatures />
+        <CardFeatures title="Lending" />
+        <CardFeatures title="Staking" />
+        <CardFeatures title="Lending" />
       </Flex>
     </Container>
   );

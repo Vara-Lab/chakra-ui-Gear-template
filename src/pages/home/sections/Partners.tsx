@@ -1,10 +1,26 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 
 function Partners() {
   return (
-    <Box bgColor="black" h="4rem">
-      <Heading>Vara Network</Heading>
-    </Box>
+    <Flex
+      flexDirection="row"
+      border="1px"
+      borderColor="#00FFC4"
+      p="1rem"
+      bgColor="#1B1B1F"
+      h="4rem"
+      justify="space-around"
+    >
+      <Heading color="gray.500" fontSize="1.5rem">
+        Vara Network
+      </Heading>
+      <Heading color="gray.500" fontSize="1.5rem">
+        Vara Network
+      </Heading>
+      <Heading color="gray.500" fontSize="1.5rem">
+        Vara Network
+      </Heading>
+    </Flex>
   );
 }
 

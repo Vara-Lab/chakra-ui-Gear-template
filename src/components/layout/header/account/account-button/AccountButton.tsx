@@ -1,6 +1,6 @@
-import Identicon from '@polkadot/react-identicon';
-import { buttonStyles } from '@gear-js/ui';
-import { Button } from '@chakra-ui/react';
+import Identicon from "@polkadot/react-identicon";
+import { buttonStyles } from "@gear-js/ui";
+import { Button, Text } from "@chakra-ui/react";
 import "./style.css";
 
 type Props = {
@@ -12,12 +12,21 @@ type Props = {
 };
 
 function AccountButton({ address, name, onClick, isActive, block }: Props) {
-  
-
   return (
-    <Button backgroundColor="green.600" borderRadius="30px"  onClick={onClick}>
-      <Identicon value={address} className={buttonStyles.icon} theme="polkadot" size={28} />
-      {name}
+    <Button
+      border="1px"
+      borderColor="white"
+      backgroundColor="transparent"
+      borderRadius="30px"
+      onClick={onClick}
+    >
+      <Identicon
+        value={address}
+        className={buttonStyles.icon}
+        theme="polkadot"
+        size={28}
+      />
+      <Text color="white">{name}</Text>
     </Button>
   );
 }
