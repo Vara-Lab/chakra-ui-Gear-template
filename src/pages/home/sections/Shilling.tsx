@@ -67,9 +67,11 @@ function Shilling() {
               size="lg"
               fontWeight="normal"
               px={6}
-              color="black"
-              bgGradient="linear(to-l, #00FFC4 ,#4FFF4B)"
-              _hover={{ bg: "gray.200" }}
+              color="white"
+              bgColor="transparent"
+              border="1px"
+              borderColor="#00FFC4"
+              _hover={{ bg: "#00FFC4" }}
               onClick={() => navigate("/https://vara-network.io/")}
             >
               Go to VARA
