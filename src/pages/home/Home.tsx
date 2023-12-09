@@ -6,6 +6,7 @@ import LogoWhite from "../../assets/images/vara street logoHOMEWhite.svg";
 import { Hero } from "./sections/Hero";
 import { Features } from "./sections/Features";
 import { Partners } from "./sections/Partners";
+import { Shilling } from "./sections/Shilling";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <Hero />
       <Partners />
       <Features />
+      <Shilling />
     </>
   );
 }
