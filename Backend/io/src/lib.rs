@@ -94,7 +94,6 @@ pub struct Loans  {
    pub collateral_amount: u128, // The amount of the collateral
    pub ltv_ratio: u64, // The loan to Value ratio
    pub closing: LoanStatus, // The status of the loan 
-   pub amount_payed: u128, // The total amount payed by the borrower
     
     // delayed message como oraculo para MVP - roadmap Oraculo
 
