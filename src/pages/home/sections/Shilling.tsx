@@ -1,8 +1,18 @@
-import { Box, Image, Button, Stack, Text, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Image,
+  Button,
+  Stack,
+  Text,
+  Flex,
+  Heading,
+} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import bgShilling from "../../../assets/images/backgrounds/Vara shillingBG.svg";
-import LogoVaraWhite from "../../../assets/images/logo-vara-white 1.svg";
+import LogoVaraWhite from "../../../assets/images/VaraStreetShilling.svg";
 
 function Shilling() {
+  const navigate = useNavigate();
   return (
     <Box minW="100vw" bgImage={bgShilling}>
       <Stack
@@ -60,17 +70,9 @@ function Shilling() {
               color="black"
               bgGradient="linear(to-l, #00FFC4 ,#4FFF4B)"
               _hover={{ bg: "gray.200" }}
-              onClick={() => console.log("vara network")}
+              onClick={() => navigate("/https://vara-network.io/")}
             >
-              Go to Dapp
-            </Button>
-            <Button
-              size="lg"
-              fontWeight="normal"
-              px={6}
-              // leftIcon={<PlayIcon h={4} w={4} color='gray.300'/>}
-            >
-              How It Works
+              Go to VARA
             </Button>
           </Stack>
         </Stack>
@@ -81,44 +83,43 @@ function Shilling() {
           position="relative"
           w="full"
         >
-          {/* <Blob
-            w='150%'
-            h='150%'
-            position='absolute'
-            top='-20%'
-            left={0}
-            zIndex={-1}
-            color={useColorModeValue('red.50', 'red.400')}
-          /> */}
-          {/* <Box
-            position='relative'
-            height='300px'
-            rounded='2xl'
-            boxShadow='2xl'
-            width='full'
-            overflow='hidden'>
-            <IconButton
-              aria-label='Play Button'
-              variant='ghost'
-              _hover={{ bg: 'transparent' }}
-              // icon={<PlayIcon w={12} h={12} />}
-              size='lg'
-              color='white'
-              position='absolute'
-              left='50%'
-              top='50%'
-              transform='translateX(-50%) translateY(-50%)'
-            />
-            <Image
-              alt='Hero Image'
-              fit='cover'
-              align='center'
-              w='100%'
-              h='100%'
-              src={Gusano}
-              
-            />
-          </Box> */}
+          <Box>
+            <Box color="white" mb="2rem">
+              <Heading fontWeight="medium" fontSize="1.5rem">
+                High-Speed Transactions and Scalability
+              </Heading>
+              <Text fontWeight="100">
+                Vara Network enhances DeFi with high transaction throughput and
+                scalability. Its Gear Protocol&apos;s Actor model ensures rapid
+                transactions at lower fees, addressing issues like network
+                congestion effectively
+              </Text>
+            </Box>
+
+            <Box color="white" mb="2rem">
+              <Heading fontWeight="medium" fontSize="1.5rem">
+                Enhanced Security and Decentralization in DeFi
+              </Heading>
+              <Text fontWeight="100">
+                Security and decentralization are key in Vara Network. The Actor
+                model supports secure, independent operation of smart contracts,
+                minimizing centralization risks and promoting complex
+                decentralized applications
+              </Text>
+            </Box>
+
+            <Box color="white" mb="2rem">
+              <Heading fontWeight="medium" fontSize="1.5rem">
+                Innovative Technology for Optimized Performance
+              </Heading>
+              <Text fontWeight="100">
+                Vara Network&apos;s use of Persistent Memory and the WASM
+                Virtual Machine optimizes performance, offering faster
+                computations and efficient memory management, crucial for
+                advanced financial services on the blockchain
+              </Text>
+            </Box>
+          </Box>
         </Flex>
       </Stack>
     </Box>
