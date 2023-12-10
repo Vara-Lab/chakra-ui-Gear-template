@@ -32,7 +32,7 @@ function DepositSynthetic() {
 
   const message: any = {
     destination: programIDFT, // programId
-    payload: { DepositFunds: Number(valueAmount) },
+    payload: { Borrow: Number(valueAmount) },
     gasLimit: 2999819245,
     value: 0,
   };
