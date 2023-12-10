@@ -7,7 +7,7 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
-import { Blocknumber } from "components/blockNumber";
+import { Blocknumber } from "components/gear/blockNumber";
 import { useNavigate } from "react-router-dom";
 
 import Gusano from "../../../assets/images/3d Swirl Shape.svg";

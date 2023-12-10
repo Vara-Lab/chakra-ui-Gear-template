@@ -1,7 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import { Box, Heading, Text } from "@chakra-ui/react";
-import styles from "./CardFeature.module.scss";
+import styles from "./Card.module.scss";
 
 function CardFeatures(props: { title: string }) {
   return (
