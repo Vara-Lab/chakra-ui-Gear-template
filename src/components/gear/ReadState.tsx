@@ -13,6 +13,7 @@ function ReadState() {
 
   const [fullState, setFullState] = useState<any | undefined>({});
   const totalLiquidity = fullState.totalStablecoinDeposited || [];
+  const totalSynthLocked = fullState.totalSynteticDeposited || [];
   const lenders = fullState.lenders || [];
   const { account } = useAccount();
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
@@ -25,7 +26,7 @@ function ReadState() {
 
   // Add your programID
   const programIDFT =
-    "0x3fec8695cf03d8820b18b72e43ec2807750174ad941243cbd186535b45176cdb";
+    "0x540ef37eaaa7785860b12f89bbec083b61682c2d069508df340fb7093aa1d1d5";
 
   // Add your metadata.txt
   const meta =
@@ -61,6 +62,8 @@ function ReadState() {
         <Heading color="white"> Vara Street TVL</Heading>
         <Heading color="white">{totalLiquidity}</Heading>
         <Heading color="white">Total $gVARA Deposited</Heading>
+        <Heading>TOTAL SYNTHETIC LOCKED</Heading>
+        <Heading>{totalSynthLocked}</Heading>
         {/* <Heading color="#00FFC4">{userStatus[1].liquidity}</Heading> */}
 
         <Text color="white">{JSON.stringify(fullState)}</Text>

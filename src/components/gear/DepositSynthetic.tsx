@@ -4,11 +4,10 @@ import { ProgramMetadata } from "@gear-js/api";
 import { useState } from "react";
 // import { Button } from "@gear-js/ui";
 import { Box, Button, Flex, Heading, Input, Text } from "@chakra-ui/react";
-import { CollateralBalanceToken } from "./CollateralBalance";
 import styles from "../layout/cards/Card.module.scss";
 import { SyntheticBalanceToken } from "./SyntheticBalance";
 
-function DepositFunds() {
+function DepositSynthetic() {
   const alert = useAlert();
   const { accounts, account } = useAccount();
   const { api } = useApi();
@@ -79,8 +78,10 @@ function DepositFunds() {
   return (
     <Box className={styles.Moduleborderwrap}>
       <Box className={styles.module}>
-        <Heading color="#00FFC4">Deposit Liquidity</Heading>
-        <Text fontWeight="light">Deposit your USDT to earn 10% APY</Text>
+        <Heading color="#00FFC4">Deposit Synthetic</Heading>
+        <Text fontWeight="light">
+          Deposit your Synthetic Token and borrow USDT
+        </Text>
         <Flex mt="1rem">
           <Input
             color="white"
@@ -92,11 +93,11 @@ function DepositFunds() {
           </Button>
         </Flex>
         <Flex mt="1rem" justify="flex-end">
-          <CollateralBalanceToken />
+          <SyntheticBalanceToken />
         </Flex>
       </Box>
     </Box>
   );
 }
 
-export { DepositFunds };
+export { DepositSynthetic };

@@ -24,6 +24,8 @@ import { ReadState } from "components/gear/ReadState";
 import { Blocknumber } from "components/gear/blockNumber";
 import { CardDeposit } from "components/layout/cards/CardDeposit";
 
+import { SyntheticBalanceToken } from "components/gear/SyntheticBalance";
+import { DepositSynthetic } from "components/gear/DepositSynthetic";
 import styles from "../../components/layout/cards/Card.module.scss";
 
 function Dapp() {
@@ -47,7 +49,9 @@ function Dapp() {
               <Box>
                 <DepositFunds />
               </Box>
-              <Box>{/* <BorrowFunds /> */}</Box>
+              <Box>
+                <DepositSynthetic />
+              </Box>
             </Stack>
           </Stack>
           <Flex
