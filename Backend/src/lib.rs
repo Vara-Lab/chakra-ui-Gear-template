@@ -130,7 +130,7 @@ impl GlobalState {
         // Increase the total deposited amount
         current_globalstate.total_syntetic_deposited = current_globalstate.total_syntetic_deposited.saturating_add(amount);
 
-
+        //Transfer Funds
     }
 
 

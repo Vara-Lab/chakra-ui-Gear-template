@@ -1,25 +1,15 @@
+import { useState } from "react";
 import { useAccount, useApi, useAlert } from "@gear-js/react-hooks";
 import { web3FromSource } from "@polkadot/extension-dapp";
-import { ProgramMetadata } from "@gear-js/api";
-import { useState } from "react";
-// import { Button } from "@gear-js/ui";
-import { Box, Button, Flex, Heading, Input, Text } from "@chakra-ui/react";
-import { CollateralBalanceToken } from "./CollateralBalance";
-import styles from "../layout/cards/Card.module.scss";
-import { SyntheticBalanceToken } from "./SyntheticBalance";
+import { Button } from "@gear-js/ui";
+import { Card, Center, Heading, Input } from "@chakra-ui/react";
+import { ProgramMetadata, encodeAddress } from "@gear-js/api";
 
-function DepositFunds() {
-  const alert = useAlert();
+function InputCard() {
   const { accounts, account } = useAccount();
   const { api } = useApi();
   const [valueAmount, setValueAmount] = useState("");
-  // const [valueAmount, setValueAmount] = useState("");
-
-  // setValueAmount("");
-
-  // const AmountInputChange = (event: any) => {
-  //   setValueAmount(event.target.value);
-  // };
+  const alert = useAlert();
 
   // Add your programID
   const programIDFT =
@@ -33,8 +23,8 @@ function DepositFunds() {
 
   const message: any = {
     destination: programIDFT, // programId
-    payload: { DepositFunds: Number(valueAmount) },
-    gasLimit: 2999819245,
+    payload: { mint: Number(valueAmount) },
+    gasLimit: 899819245,
     value: 0,
   };
 
@@ -58,9 +48,10 @@ function DepositFunds() {
             if (status.isInBlock) {
               alert.success(status.asInBlock.toString());
             } else {
-              console.log("in process");
+              console.log("In process");
               if (status.type === "Finalized") {
                 alert.success(status.type);
+                setValueAmount("");
               }
             }
           }
@@ -72,31 +63,24 @@ function DepositFunds() {
       alert.error("Account not available to sign");
     }
   };
+
   const AmountInputChange = (event: any) => {
     setValueAmount(event.target.value);
   };
 
   return (
-    <Box className={styles.Moduleborderwrap}>
-      <Box className={styles.module}>
-        <Heading color="#00FFC4">Deposit Liquidity</Heading>
-        <Text fontWeight="light">Deposit your USDT to earn 10% APY</Text>
-        <Flex mt="1rem">
-          <Input
-            color="white"
-            value={valueAmount}
-            onChange={AmountInputChange}
-          />
-          <Button bgGradient="linear(to-l, #00FFC4 ,#4FFF4B)" onClick={signer}>
-            Deposit
-          </Button>
-        </Flex>
-        <Flex mt="1rem" justify="flex-end">
-          <CollateralBalanceToken />
-        </Flex>
-      </Box>
-    </Box>
+    <Card w="500px" h="200px">
+      <Center>
+        <Heading size="xs" textColor="black">
+          Amount
+        </Heading>
+      </Center>
+      <Input value={valueAmount} onChange={AmountInputChange} />
+      <Center>
+        <Button text="Unstake" onClick={() => signer()} />
+      </Center>
+    </Card>
   );
 }
 
-export { DepositFunds };
+export { InputCard };

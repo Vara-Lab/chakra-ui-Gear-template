@@ -1,15 +1,27 @@
 import { ProgramMetadata } from "@gear-js/api";
 import { Button } from "@gear-js/ui";
-import { useState } from "react";
-import { useApi, useAlert } from "@gear-js/react-hooks";
+import { useState, useEffect } from "react";
+import { useApi, useAlert, useAccount } from "@gear-js/react-hooks";
 import { AnyJson } from "@polkadot/types/types";
+import { Heading, Text } from "@chakra-ui/react";
+import { state } from "@polkadot/types/interfaces/definitions";
 
 function ReadState() {
   const { api } = useApi();
 
   const alert = useAlert();
 
-  const [fullState, setFullState] = useState<AnyJson>();
+  const [fullState, setFullState] = useState<any | undefined>({});
+  const totalLiquidity = fullState.totalStablecoinDeposited || [];
+  const lenders = fullState.lenders || [];
+  const { account } = useAccount();
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (account?.address) {
+      setWalletAddress(account.address);
+    }
+  }, [account]);
 
   // Add your programID
   const programIDFT =
@@ -31,14 +43,28 @@ function ReadState() {
       .catch(({ message }: Error) => alert.error(message));
   };
 
+  useState(() => {
+    getState();
+  });
+
+  // const findAccount = (address: string) =>
+  //   lenders.find((array: string | any[]) => array.includes(address));
+
+  // const wallet = walletAddress?.toString();
+
+  // const userStatus = findAccount(wallet);
+
   return (
     <div className="container">
       <center>Full State</center>
       <center className="state">
-        State
-        <p className="text"> {JSON.stringify(fullState)}</p>
+        <Heading color="white"> Vara Street TVL</Heading>
+        <Heading color="white">{totalLiquidity}</Heading>
+        <Heading color="white">Total $gVARA Deposited</Heading>
+        {/* <Heading color="#00FFC4">{userStatus[1].liquidity}</Heading> */}
+
+        <Text color="white">{JSON.stringify(fullState)}</Text>
       </center>
-      <Button text="Get Full State" onClick={getState} />
     </div>
   );
 }

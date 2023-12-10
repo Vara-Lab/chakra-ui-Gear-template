@@ -4,7 +4,7 @@ import { ProgramMetadata, encodeAddress } from "@gear-js/api";
 import { useState, useEffect } from "react";
 import { Flex, Text } from "@chakra-ui/react";
 
-function CollateralBalanceToken() {
+function SyntheticBalanceToken() {
   const { api } = useApi();
   const { account } = useAccount();
 
@@ -18,7 +18,7 @@ function CollateralBalanceToken() {
 
   // Add your programID
   const programIDFT =
-    "0x68596687ac4b508419ebddc112ecadcba4d82318fc197c68ba5e668e51f45a75";
+    "0xf4691ebee02a19111d95b35b39245b2c89f95198586aa3b413f94e1efd1f353b";
 
   // Add your metadata.txt
   const meta =
@@ -61,4 +61,4 @@ function CollateralBalanceToken() {
   );
 }
 
-export { CollateralBalanceToken };
+export { SyntheticBalanceToken };
