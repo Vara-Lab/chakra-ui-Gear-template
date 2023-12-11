@@ -45,7 +45,7 @@ function Dapp() {
           <Blocknumber />
           <ReadState />
         </Flex>
-        <Box bgImage={Shilling}>
+        <Box bgImage={Shilling} bgSize="cover" bgRepeat="no-repeat">
           <Stack
             pl={{ base: "1rem", md: "3rem", xl: "8rem", "2xl": "15rem" }}
             pr={{ base: "1rem" }}

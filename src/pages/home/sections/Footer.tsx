@@ -3,7 +3,7 @@ import BgFooter from "../../../assets/images/Liquid Footer.svg";
 
 function Footer() {
   return (
-    <Box bgImage={BgFooter} h="17rem">
+    <Box bgImage={BgFooter} h="17rem" bgSize="cover" bgRepeat="no-repeat">
       <Heading>FOOTER VARA STREET</Heading>
     </Box>
   );
