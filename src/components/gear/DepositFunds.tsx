@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Box, Button, Flex, Heading, Input, Text } from "@chakra-ui/react";
 import { CollateralBalanceToken } from "./CollateralBalance";
 import styles from "../layout/cards/Card.module.scss";
-import { SyntheticBalanceToken } from "./SyntheticBalance";
+
 
 function DepositFunds() {
   const alert = useAlert();

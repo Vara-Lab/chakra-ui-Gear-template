@@ -26,6 +26,7 @@ import { CardDeposit } from "components/layout/cards/CardDeposit";
 
 import { SyntheticBalanceToken } from "components/gear/SyntheticBalance";
 import { DepositSynthetic } from "components/gear/DepositSynthetic";
+import { UserLockedBalances } from "components/gear/UserLockedBalances";
 import styles from "../../components/layout/cards/Card.module.scss";
 
 function Dapp() {
@@ -33,6 +34,7 @@ function Dapp() {
     <Container p="0" maxW="100vw" bgGradient="linear(to-l, #121215 ,#284736)">
       <Box w="100vw" bgRepeat="no-repeat" bgPos="center">
         <Blocknumber />
+        <ReadState />
         <Stack
           pl={{ base: "1rem", md: "3rem", xl: "8rem", "2xl": "15rem" }}
           pr={{ base: "1rem" }}
@@ -61,7 +63,7 @@ function Dapp() {
             position="relative"
             w="full"
           >
-            <ReadState />
+            <UserLockedBalances />
           </Flex>
         </Stack>
       </Box>

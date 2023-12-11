@@ -3,17 +3,16 @@ import { ProgramMetadata, decodeAddress, encodeAddress } from "@gear-js/api";
 import { useState, useEffect } from "react";
 import { useApi, useAlert, useAccount } from "@gear-js/react-hooks";
 import { AnyJson } from "@polkadot/types/types";
-import { Heading, Text, Button } from "@chakra-ui/react";
+import { Heading, Text, Button, Box } from "@chakra-ui/react";
 import { state } from "@polkadot/types/interfaces/definitions";
+import styles from "../layout/cards/Card.module.scss";
 
-function ReadState() {
+function UserLockedBalances() {
   const { api } = useApi();
 
   const alert = useAlert();
 
   const [fullState, setFullState] = useState<any | undefined>({});
-  const totalLiquidity = fullState.totalStablecoinDeposited || [];
-  const totalSynthLocked = fullState.totalSynteticDeposited || [];
 
   const [walletDecoded, setWalletDecoded] = useState("");
   const lenders = fullState.lenders || [];
@@ -107,27 +106,34 @@ function ReadState() {
 
   // console.log(userStatus);
   return (
-    <div className="container">
-      <center className="state">
+    <Box className={styles.Moduleborderwrap}>
+      <Box className={styles.module}>
+        <Heading
+          bgGradient="linear(to-l, #4FFF4B, #00FFC4 )"
+          bgClip="text"
+          fontSize="2rem"
+          mb="3rem"
+        >
+          Positions
+        </Heading>
         <Heading fontSize="1rem" color="white">
           {" "}
-          Vara Street TVL
+          USDT LOCKED
         </Heading>
         <Heading fontSize="1rem" color="#00FFC4">
-          {totalLiquidity}
+          {collateralLocked}
         </Heading>
+
         <Heading fontSize="1rem" color="white">
-          Total $gVARA Deposited
+          {" "}
+          USDT Available to Borrow
         </Heading>
-
         <Heading fontSize="1rem" color="#00FFC4">
-          {totalSynthLocked}
+          {syntheticLocked}
         </Heading>
-
-        {/* <Text color="white">{JSON.stringify(fullState)}</Text> */}
-      </center>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
-export { ReadState };
+export { UserLockedBalances };
