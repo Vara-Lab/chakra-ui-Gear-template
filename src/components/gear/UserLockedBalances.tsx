@@ -107,7 +107,7 @@ function UserLockedBalances() {
   // console.log(userStatus);
   return (
     <Box className={styles.Moduleborderwrap}>
-      <Box className={styles.module}>
+      <Box className={styles.modulePositions}>
         <Heading
           bgGradient="linear(to-l, #4FFF4B, #00FFC4 )"
           bgClip="text"

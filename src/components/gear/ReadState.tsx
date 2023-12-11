@@ -3,7 +3,7 @@ import { ProgramMetadata, decodeAddress, encodeAddress } from "@gear-js/api";
 import { useState, useEffect } from "react";
 import { useApi, useAlert, useAccount } from "@gear-js/react-hooks";
 import { AnyJson } from "@polkadot/types/types";
-import { Heading, Text, Button } from "@chakra-ui/react";
+import { Heading, Text, Button, Flex } from "@chakra-ui/react";
 import { state } from "@polkadot/types/interfaces/definitions";
 
 function ReadState() {
@@ -58,6 +58,7 @@ function ReadState() {
   //   setUserStatus(userData[1].liquidity);
   // };
   const getCollateralLocked = () => {
+    // Find Data of account in state
     const findAccount = (address: string) =>
       lenders.find((array: string | any[]) => array.includes(address));
 
@@ -107,26 +108,22 @@ function ReadState() {
 
   // console.log(userStatus);
   return (
-    <div className="container">
-      <center className="state">
-        <Heading fontSize="1rem" color="white">
-          {" "}
-          Vara Street TVL
-        </Heading>
-        <Heading fontSize="1rem" color="#00FFC4">
-          {totalLiquidity}
-        </Heading>
-        <Heading fontSize="1rem" color="white">
-          Total $gVARA Deposited
-        </Heading>
+    <Flex>
+      <Heading fontSize="1rem" color="white">
+        {" "}
+        Vara Street TVL:
+      </Heading>
+      <Heading ml=".5rem" fontSize="1rem" color="#00FFC4">
+        {totalLiquidity}
+      </Heading>
+      <Heading fontSize="1rem" color="white" ml="1rem">
+        Total $gVARA Deposited:
+      </Heading>
 
-        <Heading fontSize="1rem" color="#00FFC4">
-          {totalSynthLocked}
-        </Heading>
-
-        {/* <Text color="white">{JSON.stringify(fullState)}</Text> */}
-      </center>
-    </div>
+      <Heading ml=".5rem" fontSize="1rem" color="#00FFC4">
+        {totalSynthLocked}
+      </Heading>
+    </Flex>
   );
 }
 

@@ -51,7 +51,7 @@ function SyntheticBalanceToken() {
   return (
     <Flex alignSelf="flex-end">
       <Text fontSize=".7rem" fontWeight="thin">
-        Balance Token =
+        Available Synthetic Balance =
       </Text>
 
       <Text ml=".5rem" fontSize=".7rem" fontWeight="thin" color="#00FFC4">

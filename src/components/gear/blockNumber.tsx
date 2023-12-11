@@ -1,4 +1,4 @@
-
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { GearApi } from "@gear-js/api";
 import { useEffect, useState } from "react";
 
@@ -19,16 +19,17 @@ function Blocknumber() {
 
   useEffect(() => {
     blocknumbers();
-  },[]);
+  }, []);
   return (
-    <div className="card">
-      <h3>Block Number</h3>
-      <p>{blocknumber}</p>
-    </div>
+    <Flex flexDir="row">
+      <Text mr=".5rem" color="white" fontWeight="semibold">
+        Vara Block Number:
+      </Text>
+      <Text bgGradient="linear(to-l, #00FFC4 ,#4FFF4B)" bgClip="text">
+        {blocknumber}
+      </Text>
+    </Flex>
   );
 }
 
 export { Blocknumber };
-
-  
-  
