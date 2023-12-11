@@ -1,9 +1,9 @@
 import { ProgramMetadata, decodeAddress, encodeAddress } from "@gear-js/api";
-import { Button } from "@gear-js/ui";
+// import { Button } from "@gear-js/ui";
 import { useState, useEffect } from "react";
 import { useApi, useAlert, useAccount } from "@gear-js/react-hooks";
 import { AnyJson } from "@polkadot/types/types";
-import { Heading, Text } from "@chakra-ui/react";
+import { Heading, Text, Button } from "@chakra-ui/react";
 import { state } from "@polkadot/types/interfaces/definitions";
 
 function ReadState() {
@@ -14,8 +14,6 @@ function ReadState() {
   const [fullState, setFullState] = useState<any | undefined>({});
   const totalLiquidity = fullState.totalStablecoinDeposited || [];
   const totalSynthLocked = fullState.totalSynteticDeposited || [];
-  const Localbalances = fullState.balances || [];
-  const [balance, setBalance] = useState<any | undefined>(0);
 
   const [walletDecoded, setWalletDecoded] = useState("");
   const lenders = fullState.lenders || [];
@@ -45,44 +43,45 @@ function ReadState() {
       .read({ programId: programIDFT, payload: "" }, metadata)
       .then((result) => {
         setFullState(result.toJSON());
-        alert.success("Successful state");
+        // alert.success("Successful state");
       })
       .catch(({ message }: Error) => alert.error(message));
-
-    const findAccount = (address: string) =>
-      lenders.find((array: string | any[]) => array.includes(address));
-
-    setUserStatus(
-      findAccount(
-        "0xd2f7e6a2a94b65520bc14247085ae744fe255476b8054f2a9ba528dc2dd63b15"
-      )
-    );
-    // console.log(UserStatus);
-
-    // lenders.some(([address, balances]: any) => {
-    //   if (encodeAddress(address) === account?.address) {
-    //     setBalance(balances);
-
-    //     return true;
-    //   }
-    //   return false;
-    // });
   };
 
-  // const getUserStatus = () => {
-  //   setWalletDecoded = walletAddress?.toString();
-
+  // const getBalance = () => {
   //   const findAccount = (address: string) =>
   //     lenders.find((array: string | any[]) => array.includes(address));
 
-  //   const userStatus = findAccount(walletDecoded);
+  //   const userData = findAccount(walletDecoded);
+  //   setUserStatus(userData[1].liquidity);
   // };
+  const getBalance = () => {
+    const findAccount = (address: string) =>
+      lenders.find((array: string | any[]) => array.includes(address));
 
-  useState(() => {
+    const userData = findAccount(walletDecoded);
+
+    // Check if userData is defined and has the expected structure
+    if (
+      userData &&
+      userData.length > 1 &&
+      userData[1] &&
+      userData[1].liquidity !== undefined
+    ) {
+      setUserStatus(userData[1].liquidity);
+    } else {
+      // Handle the case where userData is not as expected
+      setUserStatus(undefined); // or any other default value or error handling you prefer
+    }
+  };
+
+  useEffect(() => {
     getState();
-  });
+    getBalance();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fullState]);
 
-  console.log(userStatus);
+  // console.log(userStatus);
   return (
     <div className="container">
       <center>Full State</center>
@@ -92,11 +91,18 @@ function ReadState() {
         <Heading color="white">Total $gVARA Deposited</Heading>
         <Heading>TOTAL SYNTHETIC LOCKED</Heading>
         <Heading>{totalSynthLocked}</Heading>
-        {/* <Heading color="#00FFC4">{userStatus[1].liquidity}</Heading> */}
-        <Heading color="white"> Lenders</Heading>
-        {/* <Heading color="white">{lenders}</Heading> */}
+
+        <Heading color="white"> USDT LOCKED</Heading>
+        <Heading color="#00FFC4">{userStatus}</Heading>
 
         <Text color="white">{JSON.stringify(fullState)}</Text>
+        <Button
+          onClick={() => {
+            getState();
+          }}
+        >
+          Get Balances
+        </Button>
       </center>
     </div>
   );
