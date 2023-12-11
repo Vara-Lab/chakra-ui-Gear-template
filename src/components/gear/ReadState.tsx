@@ -17,9 +17,11 @@ function ReadState() {
 
   const [walletDecoded, setWalletDecoded] = useState("");
   const lenders = fullState.lenders || [];
+  const borrowers = fullState.borrowers || [];
   const { account } = useAccount();
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
-  const [userStatus, setUserStatus] = useState();
+  const [collateralLocked, setCollateralLocked] = useState();
+  const [syntheticLocked, setSyntheticLocked] = useState();
 
   useEffect(() => {
     if (account?.address) {
@@ -55,7 +57,7 @@ function ReadState() {
   //   const userData = findAccount(walletDecoded);
   //   setUserStatus(userData[1].liquidity);
   // };
-  const getBalance = () => {
+  const getCollateralLocked = () => {
     const findAccount = (address: string) =>
       lenders.find((array: string | any[]) => array.includes(address));
 
@@ -68,16 +70,38 @@ function ReadState() {
       userData[1] &&
       userData[1].liquidity !== undefined
     ) {
-      setUserStatus(userData[1].liquidity);
+      setCollateralLocked(userData[1].liquidity);
     } else {
       // Handle the case where userData is not as expected
-      setUserStatus(undefined); // or any other default value or error handling you prefer
+      setCollateralLocked(undefined); // or any other default value or error handling you prefer
+    }
+  };
+
+  const getSyntheticlLocked = () => {
+    const findAccount = (address: string) =>
+      borrowers.find((array: string | any[]) => array.includes(address));
+
+    const userData = findAccount(walletDecoded);
+
+    // Check if userData is defined and has the expected structure
+    if (
+      userData &&
+      userData.length > 1 &&
+      userData[1] &&
+      userData[1].loanamount !== undefined
+    ) {
+      setSyntheticLocked(userData[1].loanamount);
+    } else {
+      // Handle the case where userData is not as expected
+      setSyntheticLocked(undefined); // or any other default value or error handling you prefer
     }
   };
 
   useEffect(() => {
     getState();
-    getBalance();
+    getCollateralLocked();
+    getSyntheticlLocked();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fullState]);
 
@@ -93,16 +117,12 @@ function ReadState() {
         <Heading>{totalSynthLocked}</Heading>
 
         <Heading color="white"> USDT LOCKED</Heading>
-        <Heading color="#00FFC4">{userStatus}</Heading>
+        <Heading color="#00FFC4">{collateralLocked}</Heading>
+
+        <Heading color="white"> USDT Available to Borrow</Heading>
+        <Heading color="#00FFC4">{syntheticLocked}</Heading>
 
         <Text color="white">{JSON.stringify(fullState)}</Text>
-        <Button
-          onClick={() => {
-            getState();
-          }}
-        >
-          Get Balances
-        </Button>
       </center>
     </div>
   );
