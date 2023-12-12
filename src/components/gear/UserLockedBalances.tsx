@@ -114,13 +114,13 @@ function UserLockedBalances() {
           fontSize="2rem"
           mb="3rem"
         >
-          Positions
+          My Positions
         </Heading>
         <Heading fontSize="1rem" color="white">
           {" "}
           USDT LOCKED
         </Heading>
-        <Heading fontSize="1rem" color="#00FFC4">
+        <Heading fontSize="2rem" color="#00FFC4">
           {collateralLocked}
         </Heading>
 
@@ -128,7 +128,7 @@ function UserLockedBalances() {
           {" "}
           USDT Available to Borrow
         </Heading>
-        <Heading fontSize="1rem" color="#00FFC4">
+        <Heading fontSize="2rem" color="#00FFC4">
           {syntheticLocked}
         </Heading>
       </Box>

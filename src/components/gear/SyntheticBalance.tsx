@@ -54,7 +54,7 @@ function SyntheticBalanceToken() {
         Available Synthetic Balance =
       </Text>
 
-      <Text ml=".5rem" fontSize=".7rem" fontWeight="thin" color="#00FFC4">
+      <Text ml=".5rem" fontSize="1rem" fontWeight="thin" color="#00FFC4">
         {balance}
       </Text>
     </Flex>
