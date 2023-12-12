@@ -1,7 +1,8 @@
 import { useAccount, useApi, useAlert } from "@gear-js/react-hooks";
 import { web3FromSource } from "@polkadot/extension-dapp";
 import { ProgramMetadata } from "@gear-js/api";
-import { Button } from "@gear-js/ui";
+// import { Button } from "@gear-js/ui";
+import { Button } from "@chakra-ui/react";
 
 function Mint() {
   const alert = useAlert();
@@ -55,7 +56,11 @@ function Mint() {
     }
   };
 
-  return <Button text="Mint" onClick={signer} />;
+  return (
+    <Button bgColor="white" onClick={signer}>
+      MINT
+    </Button>
+  );
 }
 
 export { Mint };

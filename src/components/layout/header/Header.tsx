@@ -20,7 +20,7 @@ function Header({ isAccountVisible }: Props) {
       <Button
         color="white"
         bgColor="transparent"
-        onClick={() => navigate("/Mint")}
+        onClick={() => navigate("/mint")}
       >
         Mint
       </Button>
