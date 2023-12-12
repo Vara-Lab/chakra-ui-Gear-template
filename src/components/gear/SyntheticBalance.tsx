@@ -18,7 +18,7 @@ function SyntheticBalanceToken() {
 
   // Add your programID
   const programIDFT =
-    "0xf4691ebee02a19111d95b35b39245b2c89f95198586aa3b413f94e1efd1f353b";
+    "0xd8d0206ab4a4d0f26f80a28594e767d62bf1d5ff436c8c79e819a97399b7eaa7";
 
   // Add your metadata.txt
   const meta =

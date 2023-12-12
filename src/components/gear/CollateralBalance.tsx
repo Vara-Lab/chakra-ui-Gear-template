@@ -18,7 +18,7 @@ function CollateralBalanceToken() {
 
   // Add your programID
   const programIDFT =
-    "0x68596687ac4b508419ebddc112ecadcba4d82318fc197c68ba5e668e51f45a75";
+    "0xf6ac1d77d71ce605b6433c90e2eea15835ddc09d1def8e7d46f214bc2fbf8c59";
 
   // Add your metadata.txt
   const meta =

@@ -7,7 +7,6 @@ import { Box, Button, Flex, Heading, Input, Text } from "@chakra-ui/react";
 import { CollateralBalanceToken } from "./CollateralBalance";
 import styles from "../layout/cards/Card.module.scss";
 
-
 function DepositFunds() {
   const alert = useAlert();
   const { accounts, account } = useAccount();
@@ -21,9 +20,9 @@ function DepositFunds() {
   //   setValueAmount(event.target.value);
   // };
 
-  // Add your programID
+  // Add your programID Collateral
   const programIDFT =
-    "0x540ef37eaaa7785860b12f89bbec083b61682c2d069508df340fb7093aa1d1d5";
+    "0xe996768dde1010e993d21871214fd6a420063d9dba0ad7a1b6ddc8dcfe56a0de";
 
   // Add your metadata.txt
   const meta =
@@ -34,7 +33,7 @@ function DepositFunds() {
   const message: any = {
     destination: programIDFT, // programId
     payload: { DepositFunds: Number(valueAmount) },
-    gasLimit: 2999819245,
+    gasLimit: 8998192450,
     value: 0,
   };
 

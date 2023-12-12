@@ -17,13 +17,13 @@ function Header({ isAccountVisible }: Props) {
         h="3rem "
         src={Logo}
       />
-      <Button
+      {/* <Button
         color="white"
         bgColor="transparent"
         onClick={() => navigate("/mint")}
       >
         Mint
-      </Button>
+      </Button> */}
       {isAccountVisible && <Account />}
     </header>
   );
