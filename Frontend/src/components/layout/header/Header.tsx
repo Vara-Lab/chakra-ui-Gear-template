@@ -16,6 +16,7 @@ function Header({ isAccountVisible }: Props) {
         pl={{ base: "0.5rem", md: "2rem", xl: "3rem", "2xl": "4rem" }}
         h="3rem "
         src={Logo}
+        onClick={() => navigate("/")}
       />
       {/* <Button
         color="white"
